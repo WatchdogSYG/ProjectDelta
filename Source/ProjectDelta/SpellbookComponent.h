@@ -1,0 +1,63 @@
+// Fill out your copyright notice in the Description page of Project Settings.
+
+#pragma once
+
+#include "CoreMinimal.h"
+#include "Components/ActorComponent.h"
+#include "Spells/USpell.h"
+
+
+#include "SpellbookComponent.generated.h"
+
+
+
+UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
+class PROJECTDELTA_API USpellbookComponent : public UActorComponent
+{
+	GENERATED_BODY()
+
+public:	
+	// Sets default values for this component's properties
+	USpellbookComponent();
+
+protected:
+	// Called when the game starts
+	virtual void BeginPlay() override;
+
+public:	
+	// Called every frame
+	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
+
+	UFUNCTION(BlueprintCallable)
+		USpellbookComponent* InitialiseSpells(
+			UResourceComponent* resource, 
+			TSubclassOf<ASpell> primaryFire, 
+			TSubclassOf<ASpell> secondaryFire,
+			TSubclassOf<ASpell> ultimate,
+			TSubclassOf<ASpell> offensive,
+			TSubclassOf<ASpell> defensive
+		);
+
+	UResourceComponent* r;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Spells")
+		ASpell* PrimaryFire;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Spells")
+		TSubclassOf<ASpell> SecondaryFire;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Spells")
+		TSubclassOf<ASpell> Ultimate;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Spells")
+		TSubclassOf<ASpell> Offensive;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Spells")
+		TSubclassOf<ASpell> Defensive;
+
+	UFUNCTION(BlueprintCallable)
+	bool CastPrimaryFire();
+
+	UFUNCTION(BlueprintCallable)
+	bool CastSecondaryFire();
+};

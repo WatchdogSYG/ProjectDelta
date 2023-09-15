@@ -4,11 +4,8 @@
 
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
-#include "Item.h"
+#include <ProjectDelta/Item.h>
 #include "InventoryComponent.generated.h"
-
-
-
 
 UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
 class PROJECTDELTA_API UInventoryComponent : public UActorComponent
@@ -19,8 +16,6 @@ public:
 	// Sets default values for this component's properties
 	UInventoryComponent();
 
-	UInventoryComponent(int bagSize, int wearSize, int hotbarSize);
-
 protected:
 	// Called when the game starts
 	virtual void BeginPlay() override;
@@ -29,12 +24,9 @@ public:
 	// Called every frame
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 
+	UFUNCTION(BlueprintCallable, Category = "Debug")
+	FString PrintDebugInventory();
+		
 private:
-	TArray<Item> Bag;
-	TArray<Item> Wear;
-	TArray<Item> Hotbar;
-
-	int BagSize = 10;
-	int EquippedSize = 5;
-	int HotbarSize = 10;
+	TArray<Item> ItemArray;
 };

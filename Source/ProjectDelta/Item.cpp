@@ -3,11 +3,19 @@
 
 #include "Item.h"
 
-Item::Item()
-{
+Item::Item(FString name){
+	this->name = name;
+}
+
+Item::~Item(){
 
 }
 
-Item::~Item()
-{
+FString Item::GetName() {
+	return name;
 }
+
+
+
+
+

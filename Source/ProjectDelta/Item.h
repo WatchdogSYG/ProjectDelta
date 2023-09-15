@@ -10,20 +10,11 @@
 class PROJECTDELTA_API Item
 {
 public:
-	Item();
+	Item(FString name);
 	~Item();
 
-
-
-
+	FString GetName();
 private:
-	FText Name;
-	//Icon
-	//Rarity
-	//Flavour
-	//Affinity
-	//Weight
-	//Color
-	float SpoilTime;
+	FString name;
 
 };
