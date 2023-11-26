@@ -11,12 +11,11 @@
 
 
 
-UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
-class PROJECTDELTA_API USpellbookComponent : public UActorComponent
-{
+UCLASS(ClassGroup = (Custom), meta = (BlueprintSpawnableComponent), BlueprintType, Blueprintable)
+class PROJECTDELTA_API USpellbookComponent : public UActorComponent {
 	GENERATED_BODY()
 
-public:	
+public:
 	// Sets default values for this component's properties
 	USpellbookComponent();
 
@@ -24,40 +23,44 @@ protected:
 	// Called when the game starts
 	virtual void BeginPlay() override;
 
-public:	
+public:
 	// Called every frame
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 
 	UFUNCTION(BlueprintCallable)
-		USpellbookComponent* InitialiseSpells(
-			UResourceComponent* resource, 
-			TSubclassOf<ASpell> primaryFire, 
-			TSubclassOf<ASpell> secondaryFire,
-			TSubclassOf<ASpell> ultimate,
-			TSubclassOf<ASpell> offensive,
-			TSubclassOf<ASpell> defensive
-		);
+	USpellbookComponent* InitialiseSpells(
+		UResourceComponent* resource,
+		TSubclassOf<ASpell> primaryFire,
+		TSubclassOf<ASpell> secondaryFire,
+		TSubclassOf<ASpell> ultimate,
+		TSubclassOf<ASpell> offensive,
+		TSubclassOf<ASpell> defensive
+	);
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Resources")
 	UResourceComponent* r;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Spells")
-		ASpell* PrimaryFire;
+	ASpell* PrimaryFire;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Spells")
-		TSubclassOf<ASpell> SecondaryFire;
+	ASpell* SecondaryFire;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Spells")
-		TSubclassOf<ASpell> Ultimate;
+	ASpell* Ultimate;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Spells")
-		TSubclassOf<ASpell> Offensive;
+	ASpell* Offensive;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Spells")
-		TSubclassOf<ASpell> Defensive;
+	ASpell* Defensive;
 
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
 	bool CastPrimaryFire();
 
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
 	bool CastSecondaryFire();
+
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
+	bool CastAbility1();
 };

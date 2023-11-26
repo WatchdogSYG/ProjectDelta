@@ -3,15 +3,18 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "Item.generated.h"
 
 /**
  * 
  */
-class PROJECTDELTA_API Item
+UCLASS(ClassGroup = (Custom), meta = (BlueprintSpawnableComponent))
+class PROJECTDELTA_API UItem : public UObject
 {
+	GENERATED_BODY()
+
 public:
-	Item(FString name);
-	~Item();
+	UItem();
 
 	FString GetName();
 private:

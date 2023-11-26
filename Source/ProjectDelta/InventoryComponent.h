@@ -4,7 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
-#include "<ProjectDelta/Item.h>"
+//#include "<ProjectDelta/UItem.h>"
 #include "InventoryComponent.generated.h"
 
 UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
@@ -28,5 +28,5 @@ public:
 	FString PrintDebugInventory();
 		
 private:
-	TArray<Item> ItemArray;
+	//TArray<UItem> ItemArray;
 };

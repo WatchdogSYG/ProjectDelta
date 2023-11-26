@@ -3,15 +3,13 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "..\ResourceComponent.h"
 #include "USpell.generated.h"
 
 /**
- * 
+ *
  */
 UCLASS()
-class PROJECTDELTA_API ASpell: public AActor
-{
+class PROJECTDELTA_API ASpell : public AActor {
 	GENERATED_BODY()
 
 public:
@@ -20,12 +18,12 @@ public:
 
 
 	UFUNCTION(BlueprintCallable)
-		virtual void Activate(UResourceComponent* CasterResource, bool start) ;
+	virtual void Activate(UResourceComponent* CasterResource, bool start);
 
 
 
 private:
 	FString SpellName;
 
-	
+
 };

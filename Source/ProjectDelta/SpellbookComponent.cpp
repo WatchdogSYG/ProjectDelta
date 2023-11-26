@@ -4,54 +4,46 @@
 #include "SpellbookComponent.h"
 
 // Sets default values for this component's properties
-USpellbookComponent::USpellbookComponent()
-{
+USpellbookComponent::USpellbookComponent() {
 	// Set this component to be initialized when the game starts, and to be ticked every frame.  You can turn these features
 	// off to improve performance if you don't need them.
 	PrimaryComponentTick.bCanEverTick = true;
 
 	// ...
 
-	
-	SecondaryFire = TSubclassOf<ASpell>();
-	Ultimate =      TSubclassOf<ASpell>();
-	Offensive =     TSubclassOf<ASpell>();
-	Defensive =     TSubclassOf<ASpell>();
-
 
 }
 
 
 // Called when the game starts
-void USpellbookComponent::BeginPlay()
-{
+void USpellbookComponent::BeginPlay() {
 	Super::BeginPlay();
 
 	// ...
-	
+
 }
 
 
 // Called every frame
-void USpellbookComponent::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)
-{
+void USpellbookComponent::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) {
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
 
 	// ...
 }
 
 USpellbookComponent* USpellbookComponent::InitialiseSpells(
-	UResourceComponent* resource, 
-	TSubclassOf<ASpell> primaryFire, 
-	TSubclassOf<ASpell> secondaryFire, 
-	TSubclassOf<ASpell> ultimate, 
-	TSubclassOf<ASpell> offensive, 
+	UResourceComponent* resource,
+	TSubclassOf<ASpell> primaryFire,
+	TSubclassOf<ASpell> secondaryFire,
+	TSubclassOf<ASpell> ultimate,
+	TSubclassOf<ASpell> offensive,
 	TSubclassOf<ASpell> defensive
-){
+) {
 	r = resource;
-	
+
 	//https://forums.unrealengine.com/t/newobject-using-a-blueprint-class/136956/2
 	PrimaryFire = NewObject<ASpell>(this, NAME_None, RF_NoFlags, primaryFire->GetDefaultObject(), true);
+
 	if (GEngine) {
 		GEngine->AddOnScreenDebugMessage(
 			1, 10.0f, FColor::Green,
@@ -62,12 +54,12 @@ USpellbookComponent* USpellbookComponent::InitialiseSpells(
 	return this;
 }
 
-bool USpellbookComponent::CastPrimaryFire(){
+bool USpellbookComponent::CastPrimaryFire_Implementation() {
 	if (GEngine) {
 		GEngine->AddOnScreenDebugMessage(
-			1, 1.0f, FColor::Purple, FString::Printf(
+			1, 10.0f, FColor::Red, FString::Printf(
 				TEXT(
-					"Shoot Primary Fire"
+					"Non-overriden CastPrimaryFire_Implementation() called from base class"
 				)
 			)
 		);
@@ -76,15 +68,23 @@ bool USpellbookComponent::CastPrimaryFire(){
 	return true;
 }
 
-bool USpellbookComponent::CastSecondaryFire() {
+bool USpellbookComponent::CastSecondaryFire_Implementation() {
 	if (GEngine) {
 		GEngine->AddOnScreenDebugMessage(
-			1, 1.0f, FColor::Purple, FString::Printf(
+			1, 10.0f, FColor::Red, FString::Printf(
 				TEXT(
-					"Shoot Secondary Fire"
+					"Non-overriden CastSecondaryFire_Implementation() called from base class"
 				)
 			)
 		);
+	}
+	return true;
+}
+
+bool USpellbookComponent::CastAbility1_Implementation() {
+	if (GEngine) {
+		GEngine->AddOnScreenDebugMessage(
+			1, 10.0f, FColor::Red, FString::Printf(TEXT("Non-overriden CastAbility1_Implementation() called from base class")));
 	}
 	return true;
 }
