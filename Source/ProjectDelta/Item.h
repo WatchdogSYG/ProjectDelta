@@ -17,7 +17,10 @@ public:
 	UItem();
 
 	FString GetName();
+
 private:
 	FString name;
+
+	FItemData Properties;
 
 };
