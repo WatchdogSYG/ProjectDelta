@@ -99,5 +99,15 @@ public:
 	/** Returns FirstPersonCameraComponent subobject **/
 	UCameraComponent* GetFirstPersonCameraComponent() const { return FirstPersonCameraComponent; }
 
+private:
+
+	float SensitivityMultiplier = 1.0f;
+
+public:
+	UFUNCTION(BlueprintCallable, Category = "Input")
+	void SetSensitivityMultiplier(float factor);
+	UFUNCTION(BlueprintCallable, Category = "Input")
+	float GetSensitivityMultiplier();
+
 };
 

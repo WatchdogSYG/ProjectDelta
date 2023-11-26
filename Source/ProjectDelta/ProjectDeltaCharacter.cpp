@@ -125,14 +125,26 @@ void AProjectDeltaCharacter::MoveRight(float Value)
 
 void AProjectDeltaCharacter::TurnAtRate(float Rate)
 {
-	// calculate delta for this frame from the rate information
-	AddControllerYawInput(Rate * TurnRateGamepad * GetWorld()->GetDeltaSeconds());
+	//// calculate delta for this frame from the rate information
+
+	//if(GEngine){ GEngine->AddOnScreenDebugMessage(1, 1.0f, FColor::Yellow, FString::Printf(TEXT("YAW = %f"), 
+	//	Rate * TurnRateGamepad * GetWorld()->GetDeltaSeconds() * SensitivityMultiplier
+	//)); 
+	//}
+
+	//AddControllerYawInput(Rate * TurnRateGamepad * GetWorld()->GetDeltaSeconds() * SensitivityMultiplier);
 }
 
 void AProjectDeltaCharacter::LookUpAtRate(float Rate)
 {
-	// calculate delta for this frame from the rate information
-	AddControllerPitchInput(Rate * TurnRateGamepad * GetWorld()->GetDeltaSeconds());
+	//// calculate delta for this frame from the rate information
+
+	//if (GEngine) {
+	//	GEngine->AddOnScreenDebugMessage(2, 1.0f, FColor::Yellow, FString::Printf(TEXT("PITCH = %f"),
+	//		Rate * TurnRateGamepad * GetWorld()->GetDeltaSeconds() * SensitivityMultiplier
+	//	));
+	//}
+	//AddControllerPitchInput(Rate * TurnRateGamepad * GetWorld()->GetDeltaSeconds() * SensitivityMultiplier);
 }
 
 bool AProjectDeltaCharacter::EnableTouchscreenMovement(class UInputComponent* PlayerInputComponent)
@@ -146,4 +158,12 @@ bool AProjectDeltaCharacter::EnableTouchscreenMovement(class UInputComponent* Pl
 	}
 	
 	return false;
+}
+
+void AProjectDeltaCharacter::SetSensitivityMultiplier(float factor) {
+	SensitivityMultiplier = factor;
+}
+
+float AProjectDeltaCharacter::GetSensitivityMultiplier() {
+	return SensitivityMultiplier;
 }
