@@ -18,6 +18,9 @@ public:
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "Resources")
 	void SetText(const FString& string);
 
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "Resources")
+		void SetVisibility(const bool visibility);
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;

@@ -12,11 +12,12 @@ ANameplateActor::ANameplateActor()
 }
 
 void ANameplateActor::SetText_Implementation(const FString& string){
-	if (GEngine) { GEngine->AddOnScreenDebugMessage(-1, 15.f, FColor::Green, FString("ANameplateActor::SetText(FString string) from base class")); }
-	
+	if (GEngine) { GEngine->AddOnScreenDebugMessage(-1, 15.f, FColor::Green, FString("ANameplateActor::SetText(FString string) called from base class!")); }
 }
 
-
+void ANameplateActor::SetVisibility_Implementation(const bool visibility){
+	if (GEngine) { GEngine->AddOnScreenDebugMessage(-1, 15.f, FColor::Green, FString("ANameplateActor::SetVisibility(bool vsibility) called from base class!")); }
+}
 
 // Called when the game starts or when spawned
 void ANameplateActor::BeginPlay()
