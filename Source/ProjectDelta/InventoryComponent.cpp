@@ -13,9 +13,16 @@ UInventoryComponent::UInventoryComponent() {
 	// ...
 }
 
-FString UInventoryComponent::InitialiseInventory(TArray<UItem*> a) {
-	ItemArray.Append(a);
-	return FString::Printf(TEXT("Num: %i, Texture: "),ItemArray.Num()).Append(a[0]->Properties.Texture);
+FString UInventoryComponent::InitialiseInventory(TArray<UItem*> StartingItems, int32 StartingGold = 0, int32 StartingCredits = 0, int32 StartingSouls = 0) {
+	
+	ItemArray.Append(StartingItems);
+
+	Wallet.Gold = StartingGold;
+	Wallet.Credits = StartingCredits;
+	Wallet.Souls = StartingSouls;
+
+	return PrintDebugInventory();
+		//FString::Printf(TEXT("Num: %i, Texture: "),ItemArray.Num()).Append(a[0]->Properties.Texture);
 }
 
 
@@ -41,16 +48,17 @@ void UInventoryComponent::TickComponent(float DeltaTime, ELevelTick TickType, FA
 }
 
 FString UInventoryComponent::PrintDebugInventory() {
-	FString s = FString("----------------\nInventory\n----------------\n");
-	FItemData p;
+	FString s = FString("\n----------------\nInventory\n----------------\n");
 
-	//p = ItemArray[0].Properties;
+	s.Append(FString::Printf(TEXT("\nWallet: [%d    Gold]\n[%d Credits]\n[%d   Souls]\n"),
+		Wallet.Gold,
+		Wallet.Credits,
+		Wallet.Souls
+	));
 
-	//s = *p.Texture;
-
-	/*for (int i = 0; i < ItemArray.Num(); i++) {
-		s.Append(ItemArray[i].GetTexture().Append("\n"));
-	};*/
+	for (int i = 0; i < ItemArray.Num(); i++) {
+		s.Append(ItemArray[i]->Properties.Texture.Append("\n"));
+	};
 
 	return s;
 }

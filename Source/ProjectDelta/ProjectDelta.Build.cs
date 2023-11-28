@@ -12,5 +12,14 @@ public class ProjectDelta : ModuleRules
         PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "InputCore", "UMG" });
         PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "InputCore", "SlateCore" });
 
+        //https://forums.unrealengine.com/t/when-i-create-a-new-c-class-in-a-subfolder/246215/3
+
+        PrivateIncludePaths.AddRange(
+            new string[] {
+                "Spells",
+                "Inventory"
+                // ... add other private include paths required here ...
+            }
+        );
     }
 }

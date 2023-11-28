@@ -17,21 +17,17 @@ class PROJECTDELTA_API UItem : public UObject
 	GENERATED_BODY()
 
 public:
+
 	UItem();
-
-	//UItem* MakeItem(FItemData properties, int stack);
-
-	//FString GetName();
 
 	UPROPERTY(BlueprintReadWrite, Category = "Item Data")
 	FItemData Properties;
 
-	//UFUNCTION(BlueprintCallable, Category = "ItemData")
-	//FString GetTexture();
-FString name;
 private:
 	
-
+	float Freshness;
+	float Temperature;
+	uint32 StackSize
 	
 
 };

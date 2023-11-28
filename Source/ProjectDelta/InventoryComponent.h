@@ -5,6 +5,8 @@
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
 #include "Item.h"
+#include "Inventory/Money.h"
+
 #include "InventoryComponent.generated.h"
 
 UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
@@ -17,12 +19,9 @@ public:
 	UInventoryComponent();
 
 	UFUNCTION(BlueprintCallable, Category = "Debug")
-	FString InitialiseInventory(TArray<UItem*> a);
+	FString InitialiseInventory(TArray<UItem*> ItemArray, int32 StartingGold, int32 StartingCredits, int32 StartingSouls);
 
-	int Credits;
-	int Coins;
-	int Souls;
-
+	FWallet Wallet;
 
 protected:
 	// Called when the game starts
