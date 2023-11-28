@@ -3,24 +3,35 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "FItemData.h"
+
 #include "Item.generated.h"
 
 /**
  * 
  */
-UCLASS(ClassGroup = (Custom), meta = (BlueprintSpawnableComponent))
+UCLASS(BlueprintType, ClassGroup = (Custom), meta = (BlueprintSpawnableComponent))
 class PROJECTDELTA_API UItem : public UObject
 {
+	
 	GENERATED_BODY()
 
 public:
 	UItem();
 
-	FString GetName();
+	//UItem* MakeItem(FItemData properties, int stack);
 
-private:
-	FString name;
+	//FString GetName();
 
+	UPROPERTY(BlueprintReadWrite, Category = "Item Data")
 	FItemData Properties;
+
+	//UFUNCTION(BlueprintCallable, Category = "ItemData")
+	//FString GetTexture();
+FString name;
+private:
+	
+
+	
 
 };

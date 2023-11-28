@@ -4,7 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
-//#include "<ProjectDelta/UItem.h>"
+#include "Item.h"
 #include "InventoryComponent.generated.h"
 
 UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
@@ -16,6 +16,15 @@ public:
 	// Sets default values for this component's properties
 	UInventoryComponent();
 
+	UFUNCTION(BlueprintCallable, Category = "Debug")
+	FString InitialiseInventory(TArray<UItem*> a);
+
+	int Credits;
+	int Coins;
+	int Souls;
+
+
+
 protected:
 	// Called when the game starts
 	virtual void BeginPlay() override;
@@ -26,7 +35,8 @@ public:
 
 	UFUNCTION(BlueprintCallable, Category = "Debug")
 	FString PrintDebugInventory();
-		
+	TArray<UItem> ItemArray;	
+
 private:
-	//TArray<UItem> ItemArray;
+	
 };

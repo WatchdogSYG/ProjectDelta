@@ -11,8 +11,19 @@
 //
 //}
 
-FString UItem::GetName() {
-	return name;
+//FString UItem::GetName() {
+//	return name;
+//}
+//
+//FString UItem::GetTexture() {
+//	return *Properties.Texture;
+//}
+
+UItem::UItem() {
+	
 }
 
-UItem::UItem() {}
+//UItem* UItem::MakeItem(FItemData properties, int stack) {
+//
+//	return this;
+//}

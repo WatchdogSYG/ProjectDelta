@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/GameModeBase.h"
+#include "Engine/DataTable.h"
 #include "ProjectDeltaGameMode.generated.h"
 
 UCLASS(minimalapi)
@@ -13,6 +14,8 @@ class AProjectDeltaGameMode : public AGameModeBase
 
 public:
 	AProjectDeltaGameMode();
+
+	class UDataTable* FoodDataTable;
 };
 
 

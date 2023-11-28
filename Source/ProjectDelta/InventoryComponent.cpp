@@ -2,7 +2,7 @@
 
 
 #include "InventoryComponent.h"
-//#include "ProjectDelta/UItem.h"
+#include "Item.h"
 
 // Sets default values for this component's properties
 UInventoryComponent::UInventoryComponent() {
@@ -11,6 +11,10 @@ UInventoryComponent::UInventoryComponent() {
 	PrimaryComponentTick.bCanEverTick = true;
 
 	// ...
+}
+
+FString UInventoryComponent::InitialiseInventory(TArray<UItem*> a) {
+	return a[0]->Properties.Texture;
 }
 
 
@@ -36,10 +40,16 @@ void UInventoryComponent::TickComponent(float DeltaTime, ELevelTick TickType, FA
 }
 
 FString UInventoryComponent::PrintDebugInventory() {
-	/*FString s = FString("----------------\nInventory\n----------------\n");
-	for (int i = 0; i < ItemArray.Num(); i++) {
-		s.Append(ItemArray[i].GetName()).Append("\n");
-	};
-	return s;*/
-	return FString();
+	FString s = FString("----------------\nInventory\n----------------\n");
+	FItemData p;
+
+	//p = ItemArray[0].Properties;
+
+	//s = *p.Texture;
+
+	/*for (int i = 0; i < ItemArray.Num(); i++) {
+		s.Append(ItemArray[i].GetTexture().Append("\n"));
+	};*/
+
+	return s;
 }
