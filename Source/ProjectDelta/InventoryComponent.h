@@ -24,7 +24,6 @@ public:
 	int Souls;
 
 
-
 protected:
 	// Called when the game starts
 	virtual void BeginPlay() override;
@@ -35,7 +34,7 @@ public:
 
 	UFUNCTION(BlueprintCallable, Category = "Debug")
 	FString PrintDebugInventory();
-	TArray<UItem> ItemArray;	
+	TArray<UItem*> ItemArray;	
 
 private:
 	

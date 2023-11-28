@@ -14,7 +14,8 @@ UInventoryComponent::UInventoryComponent() {
 }
 
 FString UInventoryComponent::InitialiseInventory(TArray<UItem*> a) {
-	return a[0]->Properties.Texture;
+	ItemArray.Append(a);
+	return FString::Printf(TEXT("Num: %i, Texture: "),ItemArray.Num()).Append(a[0]->Properties.Texture);
 }
 
 
