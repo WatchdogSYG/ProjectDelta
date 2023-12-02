@@ -20,7 +20,7 @@ public:
 	//FTableRowBase() {}
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Item Data")
-	FText DisplayName;
+	FText DisplayName = FText::FromString("None");
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Item Data")
 	int32 UID;

@@ -26,8 +26,12 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Item Data")
 	UItem* SetProperties(UItem* item, FItemData inProperties);
 
+	UFUNCTION(BlueprintCallable, Category = "Debug")
+	FString ToString();
+
 private:
 	
+	float Value;
 	float Freshness;
 	float Temperature;
 	uint32 StackSize;
