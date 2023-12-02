@@ -23,11 +23,14 @@ public:
 	UPROPERTY(BlueprintReadWrite, Category = "Item Data")
 	FItemData Properties;
 
+	UFUNCTION(BlueprintCallable, Category = "Item Data")
+	UItem* SetProperties(UItem* item, FItemData inProperties);
+
 private:
 	
 	float Freshness;
 	float Temperature;
-	uint32 StackSize
+	uint32 StackSize;
 	
 
 };

@@ -33,6 +33,8 @@ public:
 
 	UFUNCTION(BlueprintCallable, Category = "Debug")
 	FString PrintDebugInventory();
+
+	UPROPERTY(BlueprintReadWrite, Category = "Items")
 	TArray<UItem*> ItemArray;	
 
 private:

@@ -7,3 +7,8 @@
 UItem::UItem() {
 	
 }
+
+UItem* UItem::SetProperties(UItem* item, FItemData inProperties) {
+	item->Properties = inProperties;
+	return item;
+}
