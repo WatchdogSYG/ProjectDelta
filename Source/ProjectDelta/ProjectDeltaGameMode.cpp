@@ -10,10 +10,10 @@ AProjectDeltaGameMode::AProjectDeltaGameMode()
 	: Super()
 {
 	// set default pawn class to our Blueprinted character
-	static ConstructorHelpers::FClassFinder<APawn> PlayerPawnClassFinder(TEXT("/Game/Characters/FirstPerson/Blueprints/BP_FirstPersonCharacter.BP_FirstPersonCharacter_C"));	
+	static ConstructorHelpers::FClassFinder<APawn> PlayerPawnClassFinder(TEXT("/Game/ProjectDelta/Characters/FirstPerson/Blueprints/BP_FirstPersonCharacter.BP_FirstPersonCharacter_C"));	
 	DefaultPawnClass = PlayerPawnClassFinder.Class;
 
-	static ConstructorHelpers::FObjectFinder<UDataTable> GetDT(TEXT("DataTable'/Game/Data/Delta.Delta'"));
+	static ConstructorHelpers::FObjectFinder<UDataTable> GetDT(TEXT("DataTable'/Game/ProjectDelta/Food/Data/Delta.Delta'"));
 	if (GetDT.Succeeded()) {
 		FoodDataTable = GetDT.Object;
 	}
