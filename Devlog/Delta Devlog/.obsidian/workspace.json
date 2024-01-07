@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Devlog-240101.md",
+                "file": "Devlog-01-240114.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Devlog-240101.md",
+                "file": "Devlog-01-240114.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Devlog-240101.md",
+                "file": "Devlog-01-240114.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Devlog-240101.md"
+                "file": "Devlog-01-240114.md"
               }
             }
           }
@@ -148,11 +148,18 @@
   },
   "active": "5faaf6b3d1f6e109",
   "lastOpenFiles": [
-    "Pasted image 20240106173116.png",
-    "Pasted image 20240106173059.png",
-    "Pasted image 20240106135446.png",
-    "Pasted image 20240105150825.png",
-    "Untitled",
-    "Devlog-240101.md"
+    "Attachments/Pasted image 20240107152429.png",
+    "Attachments/Pasted image 20240107140455.png",
+    "Attachments/Pasted image 20240107140255.png",
+    "Attachments/Pasted image 20240107124157.png",
+    "Attachments/Pasted image 20240105150825.png",
+    "Devlog-01-240114.md",
+    "Attachments",
+    "Attachments/Pasted image 20240107124012.png",
+    "Attachments/Pasted image 20240107123517.png",
+    "Attachments/Pasted image 20240107122736.png",
+    "Attachments/Pasted image 20240107113122.png",
+    "Attachments/Pasted image 20240106173116.png",
+    "Attachments/Pasted image 20240106173059.png"
   ]
 }
